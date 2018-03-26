@@ -1,0 +1,47 @@
+<div class="row" style="font-size: 11pt;">
+  <div class="col-md-12"><h4 class="font-weight-bold">BIODATA SISWA / SISWI TKIT AN-NAHL</h4></div>
+  <div class="col-md-2" style="margin-top: 10px;">
+    NISN
+  </div>
+  <div class="col-md-9" style="margin-top: 10px;">
+    : <span class="bio"><%= @kindergarten_student.nisn %></span>
+  </div>
+  
+  <div class="col-md-2" style="margin-top: 10px;" style="margin-top: 10px;">
+    Nama Lengkap
+  </div>
+  <div class="col-md-9" style="margin-top: 10px;" style="margin-top: 10px;">
+    : <span class="bio"><%= @kindergarten_student.fullname %></span>
+  </div>
+
+  <div class="col-md-2" style="margin-top: 10px;">
+    Jenis Kelamin
+  </div>
+  <div class="col-md-9" style="margin-top: 10px;">
+    : <span class="bio"><% if @kindergarten_student.gender == 1 %>Laki-laki<% else %>Perempuan<% end %></span>
+  </div>
+
+  <div class="col-md-2" style="margin-top: 10px;">
+    Tempat Lahir
+  </div>
+  <div class="col-md-9" style="margin-top: 10px;">
+    : <span class="bio"><%= @kindergarten_student.place_of_birth %></span>
+  </div>
+  
+  <div class="col-md-2" style="margin-top: 10px;">
+    Tanggal Lahir
+  </div>
+  <div class="col-md-9" style="margin-top: 10px;">
+    : <span class="bio"><%= I18n.l(@kindergarten_student.date_of_birth) %></span>
+  </div>
+
+  <div class="col-md-2" style="margin-top: 10px;">
+    Alamat
+  </div>
+  <div class="col-md-9" style="margin-top: 10px;">
+    : <span class="bio"><%= @kindergarten_student.address %></span>
+  </div>
+  <div class="col-md-9" style="margin-top: 20px;">
+    <%= link_to 'Kembali', kindergarten_student_index_path, class: 'btn btn-primary' %>
+  </div>
+</div>

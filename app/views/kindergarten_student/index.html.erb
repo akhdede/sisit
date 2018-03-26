@@ -1,0 +1,56 @@
+<div class="row">
+  <div class="col-md-12" style="margin-bottom: 20px;"><h4 class="font-weight-bold">DAFTAR BIODATA SISWA / SISWI TKIT AN-NAHL</h4></div>
+  <div class="col-md-9">
+    <%= link_to 'Tambah', new_kindergarten_student_path, class: 'btn btn-primary' %>
+  </div>
+  <div class="col-md-3">
+    <%= form_tag kindergarten_student_index_path, method: :get do %>
+      <div class="input-group">
+        <%= text_field_tag :search, nil, class: 'form-control', placeholder: 'Cari nama' %>
+        <div class="input-group-append">
+          <%= image_submit_tag('icons/search.svg', class: 'btn btn-primary') %>
+        </div>
+      </div>
+    <% end %>
+  </div>
+  <div class="col-md-12">
+    <table class="table table-bordered">
+      <thead align="center">
+        <tr>
+          <th>NISN</th>
+          <th>NAMA LENGKAP</th>
+          <th>JENIS KELAMIN</th>
+          <th>TEMPAT LAHIR</th>
+          <th>TANGGAL LAHIR</th>
+          <th width=350>ALAMAT</th>
+          <th>AKSI</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @kindergarten_students.each do |s| %>
+          <tr>
+              <td><%= s.nisn %></td>
+              <td><%= s.fullname %></td>
+              <td>
+                <% if s.gender == 1 %>
+                  Laki-laki
+                <% else %>
+                  Perempuan
+                <% end %>
+              </td>
+              <td><%= s.place_of_birth %></td>
+              <td><%= I18n.l(s.date_of_birth) %></td>
+              <td><%= s.address %></td>
+              <td>
+                <%= link_to image_tag("icons/show.svg", class: 'icon-aksi'), kindergarten_student_path(s), title: 'Lihat' %>
+                <%= link_to image_tag("icons/edit.svg", class: 'icon-aksi'), edit_kindergarten_student_path(s), title: 'Ubah' %>
+                <%= link_to image_tag("icons/delete.svg", class: 'icon-aksi'), kindergarten_student_path(s), method: :delete, data: {confirm: 'Apakah anda yakin?'}, title: 'Hapus' %> 
+              </td>
+          </tr>
+          <% end %>
+      </tbody>
+    </table>
+
+    <%= will_paginate @kindergarten_students, renderer: WillPaginate::ActionView::BootstrapLinkRenderer %>
+  </div>
+</div>

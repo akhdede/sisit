@@ -1,0 +1,28 @@
+<div class="login-page col-md-5 text-center">
+  <div class="form-group">
+    <h2>Log in Administrator</h2>
+    <h6>Sistem Informasi Sekolah Islam Terpadu</h6>
+  </div>
+
+  <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+    <div class="form-row">
+      <h6><%= f.label :email %></h6>
+      <div class="form-group col-md-12">
+        <%= f.email_field :email, autofocus: true, autocomplete: "email", class: 'form-control text', placeholder: 'Masukkan alamat email' %>
+      </div>
+
+      <h6><%= f.label :password %></h6>
+      <div class="form-group col-md-12">
+        <%= f.password_field :password, autocomplete: "off", class: 'form-control text', placeholder: 'Masukkan password'  %>
+      </div>
+
+      <div class="form-group col-md-12">
+        <%= f.submit "Log in", class: 'btn btn-primary form-control' %>
+      </div>
+    </div>
+  <% end %>
+
+  <div class="form-group">
+    <%= render "devise/shared/links" %>
+  </div>
+</div>

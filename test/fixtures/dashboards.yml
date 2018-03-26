@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  siswa_tk_ikhwan_count: 1
+  siswa_tk_akhwat_count: 1
+  total_siswa_tk: 1
+
+two:
+  siswa_tk_ikhwan_count: 1
+  siswa_tk_akhwat_count: 1
+  total_siswa_tk: 1
